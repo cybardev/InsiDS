@@ -1,6 +1,6 @@
 # insiDS
 
-## Controller Skin for Ignited Emulator
+## DS Controller Skin for Ignited Emulator
 
 Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
