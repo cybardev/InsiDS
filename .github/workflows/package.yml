@@ -1,0 +1,35 @@
+name: Package Ignited Skin
+
+on:
+    # push:
+    #     branches: ["main"]
+
+    # Allows running this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    package:
+        name: Create Skin Package and Upload as Artifact
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install dependencies
+              uses: awalsh128/cache-apt-pkgs-action@latest
+              with:
+                  packages: imagemagick
+                  version: 1.0
+
+            - name: Convert .xcf to .pdf
+              run: convert -alpha on -background none -layers merge insiDS_e2e.xcf insiDS_e2e.pdf
+
+            - name: Create .ignitedskin package
+              run: zip insiDS.ignitedskin info.json insiDS_e2e.pdf insiDS_e2e.xcf README.md LICENSE
+
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: insiDS Skin
+                  path: insiDS.ignitedskin
