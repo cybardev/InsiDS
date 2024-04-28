@@ -23,10 +23,10 @@ jobs:
                   version: 1.0
 
             - name: Convert .xcf to .pdf
-              run: convert -alpha on -background none -layers merge insiDS_e2e.xcf insiDS_e2e.pdf
+              run: convert -alpha on -background none -layers merge insiDS.xcf insiDS.pdf
 
             - name: Create .ignitedskin package
-              run: zip insiDS.ignitedskin info.json insiDS_e2e.pdf insiDS_e2e.xcf README.md LICENSE
+              run: zip insiDS.ignitedskin info.json insiDS.pdf insiDS.xcf README.md LICENSE
 
             - name: Upload build artifacts
               uses: actions/upload-artifact@v4
