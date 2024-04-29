@@ -25,13 +25,15 @@ jobs:
         run: |
           convert -alpha on -background none -layers merge insiDS.xcf insiDS.pdf
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Create skin archive
+        run: |
+          zip insiDS.ignitedskin info.json insiDS.pdf insiDS.xcf README.md LICENSE
+
+      - name: Release skin
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: insiDS.ignitedskin
-          path: |
-            info.json
-            insiDS.pdf
-            insiDS.xcf
-            README.md
-            LICENSE
+          automatic_release_tag: latest
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            insiDS.ignitedskin
