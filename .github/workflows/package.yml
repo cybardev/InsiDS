@@ -16,6 +16,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
+            # FIXME: use latest imagemagick to fix XCF compatibility error
             - name: Install dependencies
               uses: awalsh128/cache-apt-pkgs-action@latest
               with:
