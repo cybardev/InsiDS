@@ -33,7 +33,7 @@
               "inputs": ["toggleAltRepresentations"],
               "frame": {
                 "x": 718,
-                "y": 152,
+                "y": 15,
                 "width": 163,
                 "height": 116
               }
@@ -54,7 +54,7 @@
               },
               "frame": {
                 "x": 718,
-                "y": 15,
+                "y": 147,
                 "width": 163,
                 "height": 122
               }
@@ -84,7 +84,7 @@
               },
               "outputFrame": {
                 "x": 718,
-                "y": 15,
+                "y": 147,
                 "width": 163,
                 "height": 122
               }
@@ -136,7 +136,7 @@
               "inputs": ["toggleAltRepresentations"],
               "frame": {
                 "x": 718,
-                "y": 152,
+                "y": 15,
                 "width": 163,
                 "height": 116
               }
@@ -173,7 +173,7 @@
               },
               "outputFrame": {
                 "x": 718,
-                "y": 15,
+                "y": 147,
                 "width": 163,
                 "height": 122
               }
