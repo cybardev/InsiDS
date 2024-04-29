@@ -1,36 +1,37 @@
 name: Package Ignited Skin
 
 on:
-    push:
-        branches: ["main"]
+  push:
+    branches: ["main"]
 
-    # Allows running this workflow manually from the Actions tab
-    workflow_dispatch:
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-    package:
-        name: Create Skin Package
-        runs-on: macos-latest
+  package:
+    name: Create Skin Package
+    runs-on: macos-latest
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Install dependencies
-              run: |
-                  brew update
-                  brew install imagemagick
+      - name: Install dependencies
+        run: |
+          brew update
+          brew install imagemagick
 
-            - name: Convert .xcf to .pdf
-              run: convert -alpha on -background none -layers merge insiDS.xcf insiDS.pdf
+      - name: Convert .xcf to .pdf
+        run: |
+          convert -alpha on -background none -layers merge insiDS.xcf insiDS.pdf
 
-            - name: Upload build artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                  name: insiDS.deltaskin
-                  path: |
-                      info.json
-                      insiDS.pdf
-                      insiDS.xcf
-                      README.md
-                      LICENSE
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: insiDS.ignitedskin
+          path: |
+            info.json
+            insiDS.pdf
+            insiDS.xcf
+            README.md
+            LICENSE
