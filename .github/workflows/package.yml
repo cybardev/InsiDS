@@ -10,18 +10,16 @@ on:
 jobs:
     package:
         name: Create Skin Package and Upload as Artifact
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            # FIXME: use latest imagemagick to fix XCF compatibility error
             - name: Install dependencies
-              uses: awalsh128/cache-apt-pkgs-action@latest
-              with:
-                  packages: imagemagick
-                  version: 1.0
+              run: |
+                  brew update
+                  brew install imagemagick
 
             - name: Convert .xcf to .pdf
               run: convert -alpha on -background none -layers merge insiDS.xcf insiDS.pdf
