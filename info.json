@@ -10,7 +10,59 @@
                     "assets": {
                         "resizable": "insiDS.pdf"
                     },
-                    "items": [],
+                    "items": [
+                        {
+                            "inputs": ["menu"],
+                            "frame": {
+                                "x": 0,
+                                "y": 33,
+                                "width": 50,
+                                "height": 62
+                            },
+                            "extendedEdges": {
+                                "bottom": 0,
+                                "left": 0
+                            }
+                        },
+                        {
+                            "inputs": ["toggleFastForward"],
+                            "frame": {
+                                "x": 794,
+                                "y": 33,
+                                "width": 50,
+                                "height": 62
+                            },
+                            "extendedEdges": {
+                                "bottom": 0,
+                                "left": 0
+                            }
+                        },
+                        {
+                            "inputs": ["toggleAltRepresentations"],
+                            "frame": {
+                                "x": 122,
+                                "y": 36,
+                                "width": 424,
+                                "height": 318
+                            },
+                            "extendedEdges": {
+                                "bottom": 0,
+                                "left": 0
+                            }
+                        },
+                        {
+                            "inputs": {
+                                "x": "touchScreenX",
+                                "y": "touchScreenY"
+                            },
+                            "frame": {
+                                "x": 546,
+                                "y": 105,
+                                "width": 240,
+                                "height": 180
+                            }
+                        }
+                    ],
                     "screens": [
                         {
                             "inputFrame": {
