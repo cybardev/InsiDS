@@ -12,7 +12,7 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 - Main screen in focus, centered horizontally
 - Secondary screen minified but accessible
 - Swap screens with the push of a button
-- Pause menu and Fast Forward buttons for easy access
+- Pause Menu, Quick Save, and Fast Forward buttons for easy access
 
 ### Credits
 
