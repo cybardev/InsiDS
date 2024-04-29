@@ -8,3 +8,6 @@ build/
 
 # editor config
 .vscode/
+
+# macOS artifacts
+.DS_Store
