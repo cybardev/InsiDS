@@ -17,4 +17,5 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 ### Credits
 
 - [noah978's skin guide](<https://noah978.gitbook.io/delta-docs/skins>)
+- [nazy00](<https://github.com/nazy00>) for button icons
 - KeeWhi, for inspiration
