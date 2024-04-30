@@ -1,6 +1,5 @@
 # build files
 build/
-*.png
 *.pdf
 *.zip
 *.deltaskin
