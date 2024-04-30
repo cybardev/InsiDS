@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate PDF skin image
         env:
-          BTN_ALPHA: 0.2
+          BTN_ALPHA: 0.16
         run: |
           magick -size 2688x1242 xc:none \
             ./assets/save.png  -geometry    +45+45  -composite \
