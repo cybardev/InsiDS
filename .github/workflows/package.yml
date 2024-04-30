@@ -26,17 +26,14 @@ jobs:
           brew install imagemagick
 
       - name: Generate PDF skin image
+        env:
+          BTN_ALPHA: 0.2
         run: |
-          BUTTONS=("save" "swap" "menu" "fast")
-          for BTN in ${BUTTONS}; do
-            convert ./assets/${BTN}.png -alpha set -background none -channel A -evaluate multiply 0.2 +channel ${BTN}_a.png
-          done
-
           magick -size 2688x1242 xc:none \
-            save_a.png  -geometry    +45+45  -composite \
-            swap_a.png  -geometry  +2155+45  -composite \
-            menu_a.png  -geometry   +45+643  -composite \
-            fast_a.png  -geometry +2155+849  -composite \
+            ./assets/save.png  -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel -geometry    +45+45  -composite \
+            ./assets/swap.png  -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel -geometry  +2155+45  -composite \
+            ./assets/menu.png  -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel -geometry   +45+643  -composite \
+            ./assets/fast.png  -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel -geometry +2155+849  -composite \
             insiDS.pdf
 
       - name: Create skin archive
