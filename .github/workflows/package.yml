@@ -31,8 +31,8 @@ jobs:
         run: |
           magick -size 2688x1242 xc:none \
             ./assets/save.png  -geometry    +45+45  -composite \
-            ./assets/swap.png  -geometry  +2155+45  -composite \
             ./assets/menu.png  -geometry   +45+643  -composite \
+            ./assets/swap.png  -geometry  +2155+45  -composite \
             ./assets/fast.png  -geometry +2155+849  -composite \
             -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel \
             insiDS.pdf
