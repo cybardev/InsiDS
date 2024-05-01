@@ -7,6 +7,12 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 > [!IMPORTANT]
 > Intended for use with edge-to-edge devices. May not work with devices that have a home button.
 
+### Screenshots
+
+![Screenshot of the insiDS skin for Ignited emulator playing Tales of Innocence using a Razer Kishi V2 controller](<./screenshots/insiDS-toi.png> "insiDS skin for Ignited showing Tales of Innocence")
+
+![Screenshot of the insiDS skin for Ignited emulator playing Pokemon Platinum using a Razer Kishi V2 controller](<./screenshots/insiDS-plat.png> "insiDS skin for Ignited showing Pokemon Platinum")
+
 ### Features
 
 - Main screen in focus, centered horizontally
