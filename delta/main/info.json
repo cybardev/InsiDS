@@ -30,7 +30,7 @@
               }
             },
             {
-              "inputs": ["toggleAltRepresentations"],
+              "inputs": ["quickLoad"],
               "frame": {
                 "x": 718,
                 "y": 15,

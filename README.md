@@ -41,7 +41,7 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - Swap screens with the push of a button (*Ignited only*)
 
-- Pause Menu, Quick Save, and Fast Forward buttons for easy access
+- Pause Menu, Quick Save, Quick Load (*Delta only*), and Fast Forward buttons for easy access
 
 ### Using with Ignited
 
