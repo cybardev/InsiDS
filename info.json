@@ -1,6 +1,6 @@
 {
   "name": "insiDS",
-  "identifier": "com.cybardev.ds.insiDS",
+  "identifier": "dev.cybar.ds.insiDS",
   "gameTypeIdentifier": "com.rileytestut.delta.game.ds",
   "debug": false,
   "representations": {
