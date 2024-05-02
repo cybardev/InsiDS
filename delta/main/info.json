@@ -100,7 +100,7 @@
             "left": 0,
             "right": 0
           },
-          "translucent": false,
+          "translucent": true,
           "backgroundBlur": true
         }
       }
