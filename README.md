@@ -82,17 +82,22 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
     ./assets/menu.png  -geometry   +45+643  -composite \
     ./assets/swap.png  -geometry  +2155+45  -composite \
     ./assets/fast.png  -geometry +2155+849  -composite \
-    -alpha set -background none -channel A -evaluate multiply 0.16 +channel \
     insiDS.pdf
 
   zip insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
+
+  magick -size 2688x1242 xc:none \
+    ./assets/save.png  -geometry    +45+45  -composite \
+    ./assets/menu.png  -geometry   +45+643  -composite \
+    ./assets/load.png  -geometry  +2155+45  -composite \
+    ./assets/fast.png  -geometry +2155+849  -composite \
+    insiDS.pdf
+
   zip insiDS.deltaskin insiDS.pdf README.md LICENSE
   cp insiDS.deltaskin insiDS-alt.deltaskin
   (cd delta/main; zip -ur ../../insiDS.deltaskin ./)
   (cd delta/alt; zip -ur ../../insiDS-alt.deltaskin ./)
   ```
-
-  - **PS**: change `0.16` above to whatever button opacity you want between 0.0 to 1.0 (1.0 is fully opaque, 0.0 is fully transparent)
 
 - Install generated `.ignitedskin` file in Ignited, and `.deltaskin` files in Delta
 
