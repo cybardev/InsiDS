@@ -100,7 +100,7 @@
             "left": 0,
             "right": 0
           },
-          "translucent": false,
+          "translucent": true,
           "backgroundBlur": true
         }
       }
@@ -203,7 +203,7 @@
             "left": 0,
             "right": 0
           },
-          "translucent": false,
+          "translucent": true,
           "backgroundBlur": true
         }
       }

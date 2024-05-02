@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 env:
-  BTN_ALPHA: 0.16 # button opacity
+  BTN_ALPHA: 0.99 # button opacity
 
 jobs:
   package:
