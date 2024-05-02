@@ -26,8 +26,10 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 ### Screenshots
 
 ![Screenshot of the insiDS skin for Ignited emulator playing Tales of Innocence using a Razer Kishi V2 controller](<./screenshots/insiDS-toi.png> "insiDS skin for Ignited showing Tales of Innocence")
+*Tales of Innocence*
 
 ![Screenshot of the insiDS skin for Ignited emulator playing Pokemon Platinum using a Razer Kishi V2 controller](<./screenshots/insiDS-plat.png> "insiDS skin for Ignited showing Pokemon Platinum")
+*Pokemon Platinum*
 
 ### Features
 
@@ -83,7 +85,7 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - Push changes to your fork
 
-- Run GitHub Actions workflow (_if it doesn't run automatically_)
+- Run GitHub Actions workflow (*if it doesn't run automatically*)
 
 - Download `insiDS.ignitedskin` from releases and install in Ignited
 
