@@ -11,9 +11,6 @@ on:
 permissions:
   contents: write
 
-env:
-  BTN_ALPHA: 0.99 # button opacity
-
 jobs:
   package:
     name: Create and Release Skin Packages
@@ -35,7 +32,6 @@ jobs:
             ./assets/menu.png  -geometry   +45+643  -composite \
             ./assets/swap.png  -geometry  +2155+45  -composite \
             ./assets/fast.png  -geometry +2155+849  -composite \
-            -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel \
             insiDS.pdf
 
       - name: Create skin package for Ignited
@@ -49,7 +45,6 @@ jobs:
             ./assets/menu.png  -geometry   +45+643  -composite \
             ./assets/load.png  -geometry  +2155+45  -composite \
             ./assets/fast.png  -geometry +2155+849  -composite \
-            -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel \
             insiDS.pdf
 
       - name: Create skin packages for Delta
