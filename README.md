@@ -1,6 +1,6 @@
 # insiDS
 
-## DS Controller Skin for Ignited Emulator
+## DS Controller Skin for Ignited and Delta emulators
 
 Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
@@ -13,7 +13,9 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - [Features](<#features>)
 
-- [Usage](<#usage>)
+- [Using with Ignited](<#using-with-ignited>)
+
+- [Using with Delta](<#using-with-delta>)
 
 - [Modification](<#modification>)
 
@@ -25,10 +27,10 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 ### Screenshots
 
-![Screenshot of the insiDS skin for Ignited emulator playing Tales of Innocence using a Razer Kishi V2 controller](<./screenshots/insiDS-toi.png> "insiDS skin for Ignited showing Tales of Innocence")
+![Screenshot of the insiDS skin playing Tales of Innocence using a Razer Kishi V2 controller](<./screenshots/insiDS-toi.png> "insiDS skin showing Tales of Innocence")
 *Tales of Innocence*
 
-![Screenshot of the insiDS skin for Ignited emulator playing Pokemon Platinum using a Razer Kishi V2 controller](<./screenshots/insiDS-plat.png> "insiDS skin for Ignited showing Pokemon Platinum")
+![Screenshot of the insiDS skin playing Pokemon Platinum using a Razer Kishi V2 controller](<./screenshots/insiDS-plat.png> "insiDS skin showing Pokemon Platinum")
 *Pokemon Platinum*
 
 ### Features
@@ -37,14 +39,27 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - Secondary screen minified but accessible
 
-- Swap screens with the push of a button
+- Swap screens with the push of a button (*Ignited only*)
 
 - Pause Menu, Quick Save, and Fast Forward buttons for easy access
 
-### Usage
+### Using with Ignited
 
 - Download latest release from this link: <https://github.com/cybardev/InsiDS/releases/download/latest/insiDS.ignitedskin>
+
 - Tap the downloaded file, or import manually in Ignited settings
+
+### Using with Delta
+
+- Download latest release from these links:
+
+  - main screen centred: <https://github.com/cybardev/InsiDS/releases/download/latest/insiDS.deltaskin>
+
+  - touch screen centred: <https://github.com/cybardev/InsiDS/releases/download/latest/insiDS-alt.deltaskin>
+
+- Tap the downloaded files, or import manually in Delta settings
+
+- Screen swap button will not work (until Delta implements it). Switch to and from alt skin from Delta settings
 
 ### Modification
 
@@ -71,11 +86,15 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
     insiDS.pdf
 
   zip insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
+  zip insiDS.deltaskin insiDS.pdf README.md LICENSE
+  cp insiDS.deltaskin insiDS-alt.deltaskin
+  (cd delta/main; zip -ur ../../insiDS.deltaskin ./)
+  (cd delta/alt; zip -ur ../../insiDS-alt.deltaskin ./)
   ```
 
   - **PS**: change `0.16` above to whatever button opacity you want between 0.0 to 1.0 (1.0 is fully opaque, 0.0 is fully transparent)
 
-- Install generated `insiDS.ignitedskin` file in Ignited
+- Install generated `.ignitedskin` file in Ignited, and `.deltaskin` files in Delta
 
 #### Alternate Steps
 
@@ -87,7 +106,7 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - Run GitHub Actions workflow (*if it doesn't run automatically*)
 
-- Download `insiDS.ignitedskin` from releases and install in Ignited
+- From releases, download and install generated `.ignitedskin` file in Ignited, and `.deltaskin` files in Delta
 
 > [!NOTE]
 > The [Steps](<#steps>) section is good for one-time changes. Follow [Alternate Steps](<#alternate-steps>) to maintain a history of your changes.

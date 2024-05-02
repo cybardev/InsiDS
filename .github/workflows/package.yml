@@ -1,4 +1,4 @@
-name: Package Ignited Skin
+name: Package insiDS Skin
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   package:
-    name: Create Skin Package
+    name: Create and Release Skin Packages
     runs-on: macos-latest
 
     steps:
@@ -37,9 +37,16 @@ jobs:
             -alpha set -background none -channel A -evaluate multiply ${BTN_ALPHA} +channel \
             insiDS.pdf
 
-      - name: Create skin archive
+      - name: Create skin package for Ignited
         run: |
           zip insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
+
+      - name: Create skin packages for Delta
+        run: |
+          zip insiDS.deltaskin insiDS.pdf README.md LICENSE
+          cp insiDS.deltaskin insiDS-alt.deltaskin
+          (cd delta/main; zip -ur ../../insiDS.deltaskin ./)
+          (cd delta/alt; zip -ur ../../insiDS-alt.deltaskin ./)
 
       - name: Release skin
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -49,3 +56,5 @@ jobs:
           prerelease: false
           files: |
             insiDS.ignitedskin
+            insiDS.deltaskin
+            insiDS-alt.deltaskin
