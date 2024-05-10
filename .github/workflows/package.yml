@@ -25,6 +25,10 @@ jobs:
         with:
           tools: imagemagick
 
+      - name: Generate button PNGs
+        run: |
+          for i in ./assets/*.xcf; do convert -alpha on -background none -layers merge $i ${i/xcf/png}; done
+
       - name: Generate PDF skin image for Ignited
         run: |
           magick -size 2688x1242 xc:none \
