@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate rounded button PNGs
         run: |
-          BUTTONS=("save" "load" "swap" "menu" "fast")
+          BUTTONS=("save" "menu" "swap" "load" "fast")
           for BTN in ${BUTTONS}; do
             magick ./assets/${BTN}.png  ./assets/masks/${BTN}.png  \
               -compose ChangeMask  -composite  ./assets/${BTN}.png
