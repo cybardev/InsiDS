@@ -29,17 +29,17 @@ jobs:
         run: |
           BUTTONS=("save" "menu" "swap" "load" "fast")
           for BTN in ${BUTTONS}; do
-            magick ./assets/${BTN}.png  ./assets/masks/${BTN}.png  \
-              -compose ChangeMask  -composite  ./assets/${BTN}.png
+            magick ./assets/${BTN}.png  ./assets/${BTN}_mask.png  \
+              -compose ChangeMask  -composite  ./assets/${BTN}_round.png
           done
 
       - name: Generate PDF skin image for Ignited
         run: |
           magick -size 2688x1242 xc:none \
-            ./assets/save.png  -geometry    +45+45  -composite \
-            ./assets/menu.png  -geometry   +45+643  -composite \
-            ./assets/swap.png  -geometry  +2155+45  -composite \
-            ./assets/fast.png  -geometry +2155+849  -composite \
+            ./assets/save_round.png  -geometry    +45+45  -composite \
+            ./assets/menu_round.png  -geometry   +45+643  -composite \
+            ./assets/swap_round.png  -geometry  +2155+45  -composite \
+            ./assets/fast_round.png  -geometry +2155+849  -composite \
             insiDS.pdf
 
       - name: Create skin package for Ignited
@@ -49,10 +49,10 @@ jobs:
       - name: Generate PDF skin image for Delta
         run: |
           magick -size 2688x1242 xc:none \
-            ./assets/save.png  -geometry    +45+45  -composite \
-            ./assets/menu.png  -geometry   +45+643  -composite \
-            ./assets/load.png  -geometry  +2155+45  -composite \
-            ./assets/fast.png  -geometry +2155+849  -composite \
+            ./assets/save_round.png  -geometry    +45+45  -composite \
+            ./assets/menu_round.png  -geometry   +45+643  -composite \
+            ./assets/load_round.png  -geometry  +2155+45  -composite \
+            ./assets/fast_round.png  -geometry +2155+849  -composite \
             insiDS.pdf
 
       - name: Create skin packages for Delta
