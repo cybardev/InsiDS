@@ -29,7 +29,7 @@ jobs:
         run: |
           BUTTONS=("save" "load" "swap" "menu" "fast")
           for BTN in ${BUTTONS}; do
-            magick ./assets/${BTN}.png  ./assets/${BTN}_mask.png  \
+            magick ./assets/${BTN}.png  ./assets/masks/${BTN}.png  \
               -compose ChangeMask  -composite  ./assets/${BTN}.png
           done
 
