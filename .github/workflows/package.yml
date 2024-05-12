@@ -25,42 +25,9 @@ jobs:
         with:
           tools: imagemagick
 
-      - name: Generate rounded button PNGs
+      - name: Run build script
         run: |
-          declare -a BUTTONS=("save" "menu" "swap" "load" "fast")
-          for BTN in "${BUTTONS[@]}"; do
-            magick ./assets/${BTN}.png  ./assets/masks/${BTN}.png  \
-              -compose ChangeMask  -composite  ./assets/${BTN}_btn.png
-          done
-
-      - name: Generate PDF skin image for Ignited
-        run: |
-          magick -size 2688x1242 xc:none \
-            ./assets/save_btn.png  -geometry    +45+45  -composite \
-            ./assets/menu_btn.png  -geometry   +45+643  -composite \
-            ./assets/swap_btn.png  -geometry  +2155+45  -composite \
-            ./assets/fast_btn.png  -geometry +2155+849  -composite \
-            insiDS.pdf
-
-      - name: Create skin package for Ignited
-        run: |
-          zip insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
-
-      - name: Generate PDF skin image for Delta
-        run: |
-          magick -size 2688x1242 xc:none \
-            ./assets/save_btn.png  -geometry    +45+45  -composite \
-            ./assets/menu_btn.png  -geometry   +45+643  -composite \
-            ./assets/load_btn.png  -geometry  +2155+45  -composite \
-            ./assets/fast_btn.png  -geometry +2155+849  -composite \
-            insiDS.pdf
-
-      - name: Create skin packages for Delta
-        run: |
-          zip insiDS.deltaskin insiDS.pdf README.md LICENSE
-          cp insiDS.deltaskin insiDS-alt.deltaskin
-          (cd delta/main; zip -ur ../../insiDS.deltaskin ./)
-          (cd delta/alt; zip -ur ../../insiDS-alt.deltaskin ./)
+          bash build.sh
 
       - name: Release skin
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -69,6 +36,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            insiDS.ignitedskin
-            insiDS.deltaskin
-            insiDS-alt.deltaskin
+            ./build/insiDS*.*skin
