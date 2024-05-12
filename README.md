@@ -66,38 +66,19 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 > [!IMPORTANT]
 > Tested on macOS only. Likely to work on Linux. Windows users can use WSL if needed.
 
-**Dependencies**: `GIMP >= 2.10`, `imagemagick >= 7.1`
+**Dependencies**: `imagemagick >= 7.1`
 
 #### Steps
 
 - Clone this repository or download the ZIP and extract to a folder
 
-- Edit XCF files in [src](<./src>) and export to [assets](<./assets>) as PNG
+- Edit PNG files in [assets](<./assets/>)
+  - to change icons, edit files in [assets/buttons](<./assets/buttons/>)
+  - to change corners, edit files in [assets/masks](<./assets/masks/>)
 
-- Run the following commands in the repository root (folder with `info.json`):
+- Run [`build.sh`](<./build.sh>) at the repository root (folder with `info.json`)
 
-  ```sh
-  magick -size 2688x1242 xc:none \
-    ./assets/save.png  -geometry    +45+45  -composite \
-    ./assets/menu.png  -geometry   +45+643  -composite \
-    ./assets/swap.png  -geometry  +2155+45  -composite \
-    ./assets/fast.png  -geometry +2155+849  -composite \
-    insiDS.pdf
-
-  zip insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
-
-  magick -size 2688x1242 xc:none \
-    ./assets/save.png  -geometry    +45+45  -composite \
-    ./assets/menu.png  -geometry   +45+643  -composite \
-    ./assets/load.png  -geometry  +2155+45  -composite \
-    ./assets/fast.png  -geometry +2155+849  -composite \
-    insiDS.pdf
-
-  zip insiDS.deltaskin insiDS.pdf README.md LICENSE
-  cp insiDS.deltaskin insiDS-alt.deltaskin
-  (cd delta/main; zip -ur ../../insiDS.deltaskin ./)
-  (cd delta/alt; zip -ur ../../insiDS-alt.deltaskin ./)
-  ```
+- Check the generated `build` directory
 
 - Install generated `.ignitedskin` file in Ignited, and `.deltaskin` files in Delta
 
@@ -105,7 +86,9 @@ Minimalistic DS skin for use with controllers like the Razer Kishi V2
 
 - Fork this repository and clone your fork
 
-- Edit XCF files in [src](<./src>) and export to [assets](<./assets>) as PNG
+- Edit PNG files in [assets](<./assets/>)
+  - to change icons, edit files in [assets/buttons](<./assets/buttons/>)
+  - to change corners, edit files in [assets/masks](<./assets/masks/>)
 
 - Push changes to your fork
 
