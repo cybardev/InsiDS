@@ -23,6 +23,9 @@ magick -size 2688x1242 xc:none \
 # create skin package for Ignited
 zip ./build/insiDS.ignitedskin info.json insiDS.pdf README.md LICENSE
 
+# move PDF to build directory
+mv insiDS.pdf ./build/insiDS-ignited.pdf
+
 # generate PDF skin image for Delta
 magick -size 2688x1242 xc:none \
     ./build/assets/save.png -geometry +45+45 -composite \
@@ -42,3 +45,6 @@ cp ./build/insiDS.deltaskin ./build/insiDS-alt.deltaskin
     cd delta/alt
     zip -ur ../../build/insiDS-alt.deltaskin ./
 )
+
+# move PDF to build directory
+mv insiDS.pdf ./build/insiDS-delta.pdf
