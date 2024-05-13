@@ -5,24 +5,27 @@ EXT="pdf"                # use "pdf" for skin, "png" for testing
 RADIUS="39"              # corner radius in pixels
 IMG_DIR="./build/assets" # artifact PNG output directory
 
-# make build directory tree
+# Make build directory tree
 rm -rf ./build
 mkdir -p ${IMG_DIR}
 
-# generate masks for rounded corners
+# Generate masks for rounded corners
 ADJ_RAD=$((${RADIUS} * 6 * 414 / 1242)) # corner radius adjusted for mapping size
 IMG_RAD=$(bc <<<"${ADJ_RAD} - 0.5")
+# create white square with transparent circle (centred)
 convert -size $((${ADJ_RAD} * 2))x$((${ADJ_RAD} * 2)) xc:white \
     -fill black -draw "circle ${IMG_RAD},${IMG_RAD} ${IMG_RAD},0" -transparent black \
     ${IMG_DIR}/mask.png
+# split mask into 4 quadrants
 magick ${IMG_DIR}/mask.png -crop 2x2@ +repage +adjoin ${IMG_DIR}/mask_%d.png
+# rename quadrant files to match button names
 mv ${IMG_DIR}/mask_0.png ${IMG_DIR}/mask_save.png
 cp ${IMG_DIR}/mask_1.png ${IMG_DIR}/mask_load.png
 mv ${IMG_DIR}/mask_1.png ${IMG_DIR}/mask_swap.png
 mv ${IMG_DIR}/mask_2.png ${IMG_DIR}/mask_menu.png
 mv ${IMG_DIR}/mask_3.png ${IMG_DIR}/mask_fast.png
 
-# generate rounded button PNGs
+# Generate rounded button PNGs
 declare -a BUTTONS=("save" "load" "swap" "menu" "fast")
 for BTN in "${BUTTONS[@]}"; do
     case ${BTN} in
@@ -66,7 +69,7 @@ for BTN in "${BUTTONS[@]}"; do
         ${IMG_DIR}/${BTN}.png
 done
 
-# generate PDF skin image for Ignited
+# Generate PDF skin image for Ignited
 magick -size 2688x1242 xc:none \
     ${IMG_DIR}/save.png -gravity NorthWest -geometry +45+45 -composite \
     ${IMG_DIR}/swap.png -gravity NorthEast -geometry +45+45 -composite \
@@ -74,13 +77,13 @@ magick -size 2688x1242 xc:none \
     ${IMG_DIR}/fast.png -gravity SouthEast -geometry +45+45 -composite \
     ./insiDS.${EXT}
 
-# create skin package for Ignited
+# Create skin package for Ignited
 zip ./build/insiDS.ignitedskin info.json insiDS.${EXT} README.md LICENSE
 
-# move PDF to build directory
+# Move PDF to build directory
 mv insiDS.${EXT} ./build/insiDS-ignited.${EXT}
 
-# generate PDF skin image for Delta
+# Generate PDF skin image for Delta
 magick -size 2688x1242 xc:none \
     ${IMG_DIR}/save.png -gravity NorthWest -geometry +45+45 -composite \
     ${IMG_DIR}/load.png -gravity NorthEast -geometry +45+45 -composite \
@@ -88,7 +91,7 @@ magick -size 2688x1242 xc:none \
     ${IMG_DIR}/fast.png -gravity SouthEast -geometry +45+45 -composite \
     ./insiDS.${EXT}
 
-# create skin packages for Delta
+# Create skin packages for Delta
 zip ./build/insiDS.deltaskin insiDS.${EXT} README.md LICENSE
 cp ./build/insiDS.deltaskin ./build/insiDS-alt.deltaskin
 (
@@ -100,5 +103,5 @@ cp ./build/insiDS.deltaskin ./build/insiDS-alt.deltaskin
     zip -ur ../../build/insiDS-alt.deltaskin ./
 )
 
-# move PDF to build directory
+# Move PDF to build directory
 mv insiDS.${EXT} ./build/insiDS-delta.${EXT}
