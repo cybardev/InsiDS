@@ -51,13 +51,16 @@ for BTN in "${BUTTONS[@]}"; do
         BTN_SIZE="489x348"
         ;;
     esac
+    # generate button PNG with centered icon
     magick -size ${BTN_SIZE} xc:none \
         ./assets/${BTN}.png -gravity Center -composite \
         ${IMG_DIR}/${BTN}.png
+    # apply corner mask to button
     magick composite \
         ${IMG_DIR}/mask_${BTN}.png ${IMG_DIR}/${BTN}.png \
         -gravity ${GRAVITY} \
         ${IMG_DIR}/${BTN}.png
+    # convert pixels: white <-> transparent
     convert ${IMG_DIR}/${BTN}.png \
         -channel a -negate +channel -fill white -colorize 100% \
         ${IMG_DIR}/${BTN}.png
