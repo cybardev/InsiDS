@@ -2,7 +2,7 @@
 
 # >-----< CONFIG >-----< #
 EXT="pdf"                # use "pdf" for skin, "png" for testing
-RADIUS="39"              # corner radius in pixels
+RADIUS="45"              # corner radius in pixels
 IMG_DIR="./build/assets" # artifact PNG output directory
 
 # Make build directory tree
